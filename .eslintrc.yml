@@ -1,0 +1,6 @@
+extends: react-app
+
+rules:
+  max-len:
+    - warn
+    - code: 88
