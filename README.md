@@ -6,26 +6,26 @@ code](https://github.com/thinkful-ei25/arun-graphrss-server))
 This was built as an exercise in learning GraphQL and the
 [Apollo](http://apollographql.com) ecosystem.
 
-# Live version
+## Live version
 
 [Demo](https://graphrss.herokuapp.com)
 
-# Tech stack
+## Tech stack
 
-## Client
+### Client
 
 - Apollo Client
   ([apollo-client](https://github.com/apollographql/apollo-client)/[apollo-boost](https://github.com/apollographql/apollo-client/tree/master/packages/apollo-boost))
 - React ([create-react-app](https://facebook.github.io/create-react-app/))
 
-## Server ([code](https://github.com/thinkful-ei25/arun-graphrss-server))
+### Server ([code](https://github.com/thinkful-ei25/arun-graphrss-server))
 
 - [Bookshelf](https://bookshelfjs.org) - [Knex.js](https://knexjs.org) -
   Apollo Server
   ([apollo-server](https://github.com/apollographql/apollo-server)) -
   PostgreSQL
 
-# Lessons / pain points
+## Lessons / pain points
 
 - Render-props are uglier (at first sight) than HOCs. But they do make the
   React devtools easier to read
@@ -44,7 +44,7 @@ This was built as an exercise in learning GraphQL and the
   is actually quite buggy, and doesn't refresh nearly as often as one would
   like.
 
-# Future work
+## Future work
 
 - Per-user feeds (inc. authentication)
 
