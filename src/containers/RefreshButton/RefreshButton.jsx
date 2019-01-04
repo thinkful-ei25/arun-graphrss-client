@@ -23,6 +23,7 @@ export default function RefreshButton() {
           query Articles {
             articles {
               ...ArticleFields
+              expanded @client
             }
           }
           ${articleFields}
@@ -36,6 +37,8 @@ export default function RefreshButton() {
           return acc;
         }, new Map());
         articlesMap = data.refresh.reduce((acc, article) => {
+          // Set expanded to false for new items
+          article.expanded = false;
           acc.set(article.id, article);
           return acc;
         }, articlesMap);
