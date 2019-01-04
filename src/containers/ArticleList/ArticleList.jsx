@@ -5,7 +5,7 @@ import { Query } from 'react-apollo';
 import Article from '../Article/Article';
 import { articleFields } from '../../fragments';
 
-const query = gql`
+export const fetchArticlesQuery = gql`
   query FetchAllArticles {
     articles {
       ...ArticleFields
@@ -17,7 +17,7 @@ const query = gql`
 
 export default function ArticleList() {
   return (
-    <Query query={query}>
+    <Query query={fetchArticlesQuery}>
       {({ data, loading, error }) => {
         if (loading) {
           return <p>Loading</p>;
