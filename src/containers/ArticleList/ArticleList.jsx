@@ -1,23 +1,12 @@
-import gql from 'graphql-tag';
 import React from 'react';
 import { Query } from 'react-apollo';
 
 import Article from '../Article/Article';
-import { articleFields } from '../../fragments';
-
-const query = gql`
-  query FetchAllArticles {
-    articles {
-      ...ArticleFields
-      expanded @client
-    }
-  }
-  ${articleFields}
-`;
+import { fetchArticlesQuery } from '../../queries';
 
 export default function ArticleList() {
   return (
-    <Query query={query}>
+    <Query query={fetchArticlesQuery}>
       {({ data, loading, error }) => {
         if (loading) {
           return <p>Loading</p>;
@@ -27,7 +16,7 @@ export default function ArticleList() {
         }
 
         return (
-          <ul>
+          <main>
             {data.articles &&
               data.articles
                 .sort((a, b) => a.id - b.id)
@@ -36,7 +25,7 @@ export default function ArticleList() {
                     <Article {...article} />
                   </article>
                 ))}
-          </ul>
+          </main>
         );
       }}
     </Query>

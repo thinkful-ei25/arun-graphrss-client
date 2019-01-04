@@ -1,20 +1,14 @@
-import gql from 'graphql-tag';
 import React from 'react';
 import { Mutation } from 'react-apollo';
 
 import './Article.css';
-import ArticleExpanded from '../../components/ArticleExpanded/ArticleExpanded';
-import ArticleSummary from '../../components/ArticleSummary/ArticleSummary';
-
-export const TOGGLE_EXPANDED = gql`
-  mutation ToggleExpanded($id: ID!) {
-    toggleExpanded(id: $id) @client
-  }
-`;
+import ArticleExpanded from '../../components/ArticleExpanded';
+import ArticleSummary from '../../components/ArticleSummary';
+import { toggleExpandedMutation } from '../../mutations';
 
 export default function Article({ id, title, url, summary, description, expanded }) {
   return (
-    <Mutation mutation={TOGGLE_EXPANDED} variables={{ id }}>
+    <Mutation mutation={toggleExpandedMutation} variables={{ id }}>
       {(toggleExpanded) => (
         <button className="Article__button" type="button" onClick={toggleExpanded}>
           {expanded ? (
