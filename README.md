@@ -20,10 +20,11 @@ This was built as an exercise in learning GraphQL and the
 
 ### Server ([code](https://github.com/thinkful-ei25/arun-graphrss-server))
 
-- [Bookshelf](https://bookshelfjs.org) - [Knex.js](https://knexjs.org) -
-  Apollo Server
-  ([apollo-server](https://github.com/apollographql/apollo-server)) -
-  PostgreSQL
+- [Bookshelf](https://bookshelfjs.org)
+- [Knex.js](https://knexjs.org)
+- Apollo Server
+  ([apollo-server](https://github.com/apollographql/apollo-server))
+- PostgreSQL
 
 ## Lessons / pain points
 
@@ -43,6 +44,12 @@ This was built as an exercise in learning GraphQL and the
   devtools](https://chrome.google.com/webstore/detail/apollo-client-developer-t/jdkknkkbebbapilgoeccciglkfbmbnfm)
   is actually quite buggy, and doesn't refresh nearly as often as one would
   like.
+
+- Bookshelf makes a lot of queries easy. But keeping track of whether we are
+  working with a bookshelf collection or an array of Promises was a major pain
+  point. Perhaps using Typescript or Flow would help with this in the future.
+  Alternatively, dropping down to Knex.js for complicated operations like
+  refreshing a set of feeds might be simpler.
 
 ## Future work
 
