@@ -14,6 +14,7 @@ export const mutations = {
     const data = { ...article, expanded: !article.expanded };
 
     cache.writeData({ id, data });
+    return null;
   },
 };
 
