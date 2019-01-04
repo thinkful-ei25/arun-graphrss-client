@@ -30,9 +30,19 @@ export default function RefreshButton() {
 
         const previousData = cache.readQuery({ query });
 
+        // Merge articles
+        let articlesMap = previousData.articles.reduce((acc, article) => {
+          acc.set(article.id, article);
+          return acc;
+        }, new Map());
+        articlesMap = data.refresh.reduce((acc, article) => {
+          acc.set(article.id, article);
+          return acc;
+        }, articlesMap);
+
         cache.writeQuery({
           query,
-          data: { articles: [...previousData.articles, ...data.refresh] },
+          data: { articles: [...articlesMap.values()] },
         });
       }}
     >
