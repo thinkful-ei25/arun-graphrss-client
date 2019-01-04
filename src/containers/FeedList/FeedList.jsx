@@ -1,12 +1,22 @@
 import gql from 'graphql-tag';
 import React from 'react';
-import { Query } from 'react-apollo';
+import { Query, Mutation } from 'react-apollo';
 
 import { feedFields } from '../../fragments';
+import { fetchArticles } from '../ArticleList';
 
 export const fetchFeeds = gql`
   query FetchFeeds {
     feeds {
+      ...FeedFields
+    }
+  }
+  ${feedFields}
+`;
+
+const removeFeed = gql`
+  mutation RemoveFeed($feedId: ID!) {
+    removeFeed(id: $feedId) {
       ...FeedFields
     }
   }
@@ -23,7 +33,33 @@ export default function FeedList() {
         return (
           <ul>
             {data.feeds.map((feed) => (
-              <li key={feed.id}>{feed.title}</li>
+              <Mutation
+                key={feed.id}
+                mutation={removeFeed}
+                update={(cache, { data }) => {
+                  cache.writeQuery({
+                    query: fetchFeeds,
+                    data: {
+                      feeds: data.removeFeed,
+                    },
+                  });
+                }}
+                refetchQueries={[{ query: fetchArticles }]}
+              >
+                {(removeFeed) => (
+                  <li>
+                    {feed.title}{' '}
+                    <button
+                      type="button"
+                      onClick={(e) => {
+                        removeFeed({ variables: { feedId: feed.id } });
+                      }}
+                    >
+                      Remove
+                    </button>
+                  </li>
+                )}
+              </Mutation>
             ))}
           </ul>
         );

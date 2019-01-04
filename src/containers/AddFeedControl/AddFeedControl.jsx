@@ -21,7 +21,6 @@ export default function AddFeedControl() {
     <Mutation
       mutation={addFeedMutation}
       update={(cache, { data }) => {
-        console.log(data);
         const previous = cache.readQuery({ query: fetchFeeds });
 
         cache.writeQuery({
