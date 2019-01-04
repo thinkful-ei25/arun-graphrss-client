@@ -9,3 +9,10 @@ export const articleFields = gql`
     description
   }
 `;
+
+export const feedFields = gql`
+  fragment FeedFields on Feed {
+    id
+    title
+  }
+`;
