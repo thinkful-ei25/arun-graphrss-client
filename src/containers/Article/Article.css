@@ -3,7 +3,7 @@
   width: 100%;
   text-align: left;
   border: none;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0;
 }
 
 .Article__button:hover {

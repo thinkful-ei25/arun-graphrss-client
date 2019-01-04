@@ -1,6 +1,6 @@
 import React from 'react';
 
-import RefreshButton from '../RefreshButton/RefreshButton';
+import RefreshButton from '../../containers/RefreshButton';
 
 export default function FeedControls() {
   return (
