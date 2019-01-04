@@ -1,4 +1,3 @@
-import ArticleList, { fetchArticles } from './ArticleList';
+import ArticleList from './ArticleList';
 
-export { fetchArticles };
 export default ArticleList;

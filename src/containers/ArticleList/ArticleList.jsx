@@ -1,23 +1,12 @@
-import gql from 'graphql-tag';
 import React from 'react';
 import { Query } from 'react-apollo';
 
 import Article from '../Article/Article';
-import { articleFields } from '../../fragments';
-
-export const fetchArticles = gql`
-  query FetchAllArticles {
-    articles {
-      ...ArticleFields
-      expanded @client
-    }
-  }
-  ${articleFields}
-`;
+import { fetchArticlesQuery } from '../../queries';
 
 export default function ArticleList() {
   return (
-    <Query query={fetchArticles}>
+    <Query query={fetchArticlesQuery}>
       {({ data, loading, error }) => {
         if (loading) {
           return <p>Loading</p>;

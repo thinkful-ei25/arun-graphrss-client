@@ -1,4 +1,3 @@
-import FeedList, { fetchFeeds } from './FeedList';
+import FeedList from './FeedList';
 
-export { fetchFeeds };
 export default FeedList;
