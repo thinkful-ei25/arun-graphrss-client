@@ -1,0 +1,15 @@
+.Article__button {
+  background: lightgrey;
+  width: 100%;
+  text-align: left;
+  border: none;
+  margin-bottom: 0.5rem;
+}
+
+.Article__button:hover {
+  cursor: pointer;
+}
+
+.Article__button:focus {
+  outline: none;
+}
