@@ -8,7 +8,8 @@ export default function AddFeedForm({ onSubmit }) {
         onSubmit && onSubmit(e);
       }}
     >
-      <label htmlFor="feedUrl">
+      <label>
+        Add new feed
         <input type="text" name="feedUrl" id="feedUrl" placeholder="Feed url" />
       </label>
       <button>Add feed</button>

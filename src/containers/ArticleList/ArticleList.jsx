@@ -16,7 +16,7 @@ export default function ArticleList() {
         }
 
         return (
-          <main>
+          <section>
             {data.articles &&
               data.articles
                 .sort((a, b) => a.id - b.id)
@@ -25,7 +25,7 @@ export default function ArticleList() {
                     <Article {...article} />
                   </article>
                 ))}
-          </main>
+          </section>
         );
       }}
     </Query>

@@ -32,7 +32,7 @@ export default function RefreshButton() {
     >
       {(refresh) => (
         <button type="button" onClick={refresh}>
-          Refresh
+          Fetch new articles
         </button>
       )}
     </Mutation>

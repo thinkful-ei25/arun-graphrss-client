@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { ApolloProvider } from 'react-apollo';
 
 import './index.css';
-import Home from './containers/Home/Home';
+import Home from './components/Home';
 import { resolvers } from './resolvers';
 
 const client = new ApolloClient({

@@ -7,9 +7,12 @@ import FeedList from '../../containers/FeedList';
 export default function FeedControls() {
   return (
     <section>
-      <AddFeedControl />
-      <FeedList />
       <RefreshButton />
+      <header>
+        <h2>Feeds</h2>
+      </header>
+      <FeedList />
+      <AddFeedControl />
     </section>
   );
 }
